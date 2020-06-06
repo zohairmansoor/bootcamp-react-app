@@ -27,18 +27,19 @@ jobs:
         node-version: 12
 
     # Runs a set of commands using the runners shell
-    - name: Github action for
+    - name: GitHub Action for Yarn
       uses: Borales/actions-yarn@2.3.0
       with:
         # yarn command
           cmd: install # npm install / yarn install
     
     # This workflow contains a single job called "yarn build"
-    - name: Creating a yarn build
+    - name: Creating build
       run: yarn build
       
     # Runs a set of commands using the runners shell
-    - name: Installing surge
+    - name: Installing Surge
       run: npm install -g surge
-    - name: Deploying using surge
-      run: surge ./ bootcamp_react_app_setup.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+
+    - name: Deploying On Surge
+      run: surge ./build bootcamp_react_app_setup.surge.sh --token ${{ secrets.SURGE_TOKEN }}
