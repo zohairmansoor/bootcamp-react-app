@@ -24,11 +24,11 @@ jobs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v2-beta
       with:
-        version: 12
+        node-version: 12
 
     # Runs a set of commands using the runners shell
     - name: GitHub Action for Yarn
-      uses: Borales/actions-yarn@2.1.0
+      uses: Borales/actions-yarn@v2.3.0
       with:
         # yarn command
           cmd: install # npm install / yarn install
@@ -42,4 +42,4 @@ jobs:
       run: npm install -g surge
 
     - name: Deploying On Surge
-      run: surge ./build bootcamp_react_app_setup.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+      run: surge ./build bootcamp_react_app_setup.surge.sh --token ${{secrets.SURGE_TOKEN}}
